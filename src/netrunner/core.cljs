@@ -7,7 +7,7 @@
 (defonce app-state (r/atom {:page :home}))
 
 (defn home-page []
-  [:div ])
+  [:div {:className "cooldownButton cooldownActive"}])
 
 (defmulti current-page #(@app-state :page))
 (defmethod current-page :home []
