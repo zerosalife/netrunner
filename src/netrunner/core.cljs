@@ -7,7 +7,14 @@
 (defonce app-state (r/atom {:page :home}))
 
 (defn home-page []
-  [:div {:className "cooldownButton cooldownActive"}])
+  (let [button-disabled (r/atom false)]
+    (fn []
+      [:button {:className "cooldownButton"
+                :disabled @button-disabled
+                :on-click #(do
+                             (swap! button-disabled not)
+                             (js/setTimeout (fn [] (swap! button-disabled (fn [] false))) 3000)
+)}])))
 
 (defmulti current-page #(@app-state :page))
 (defmethod current-page :home []

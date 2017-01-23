@@ -1,3 +1,7 @@
 * Netrunner
 * To start
 =(figwheel-up)=
+* Button idea
+http://codepen.io/paularce/pen/oLqqOZ
+** TODO set CSS animation timing in JS
+** TODO refactor cooldownButton class to cooldown

@@ -1,13 +1,53 @@
-.cooldownButton {
+button.cooldownButton {
+  background: #336699;
   border: 1px outset blue;
-  height: 75px;
-  width: 75px;
+  min-height: 48px;
+  min-width: 144px;
   cursor: pointer;
   position: relative;
-  background-color: lightBlue;
+  margin: 5px;
+  border-radius: 5px;
+  padding: 0 15px;
+  outline: none;
   transition: all 2s;
 }
 
-.cooldownButton.cooldownActive {
-  box-shadow: inset 0 -100px 0 0 blue;
+button.cooldownButton:active, button.cooldownButton:focus {
+  outline: none;
+}
+
+button.cooldownButton:disabled {
+  background: #264d73;
+  cursor: auto;
+  box-shadow: inset 3px 3px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+button.cooldownButton:disabled:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  height: 5px;
+  background: #1a334d;
+  -webkit-animation: cooldown 3s linear;
+  animation: cooldown 3s linear;
+}
+
+@-webkit-keyframes cooldown {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes cooldown {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
 }
